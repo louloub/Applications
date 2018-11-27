@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_medium">10sp</dimen>
+    <dimen name="texte_size">20sp</dimen>
+    <dimen name="price_size">15sp</dimen>
+    <dimen name="description_size">12sp</dimen>
+</resources>

@@ -1,0 +1,94 @@
+package fr.loulou.app9.adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
+
+import fr.loulou.app9.R;
+import fr.loulou.app9.models.RobotsItem;
+
+import static java.lang.System.in;
+
+public class RobotsItemAdapter extends BaseAdapter {
+
+    // fields (Attributs) de la classe qui est notre adapter
+    // Activité = Context + interface graphique
+    private Context context;
+    private List<RobotsItem> robotsItemList;
+    private LayoutInflater inflater;
+
+    // constructeurs
+    public RobotsItemAdapter(Context context, List<RobotsItem> robotsItemList) {
+
+        this.context = context;
+        this.robotsItemList = robotsItemList;
+        this.inflater = LayoutInflater.from(context);
+    }
+
+    // Récupérer le nombre d'item
+    @Override
+    public int getCount() {
+        return robotsItemList.size();
+    }
+
+    // Récupérer l'item
+    @Override
+    public RobotsItem getItem(int position) {
+        // récupération de l'item par sa position
+        return robotsItemList.get(position);
+    }
+
+    // Récupérer l'ID de l'item
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        view = inflater.inflate(R.layout.adapter_item, null);
+
+        // Get information about item
+        // Trouver les informations à propos des item
+        RobotsItem currentItem = getItem(i);
+        final String itemName = currentItem.getName();
+        String itemDescription = currentItem.getDescription();
+        final String itemPrice = currentItem.getPrice();
+        String mnemonic = currentItem.getMnemonic();
+
+        // Get item icon view
+        ImageView itemIconView = view.findViewById(R.id.item_icon);
+        String resourceName = mnemonic ;
+        int resId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
+        // On "applique" l'image de "itemIconView" à "resId" avec la méthode setImageResource
+        itemIconView.setImageResource(resId);
+
+        // Get item name view
+        TextView itemNameView = view.findViewById(R.id.item_name);
+        itemNameView.setText(itemName);
+
+        // Get item description
+        TextView itemDescriptionView = view.findViewById(R.id.item_description);
+        itemDescriptionView.setText(itemDescription);
+
+        // Get item price
+        TextView itemPriceView = view.findViewById(R.id.item_price);
+        itemPriceView.setText(itemPrice);
+
+        // Action sur le click
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,"Petite notification de " + itemName+ ", qui coûte " + itemPrice, Toast.LENGTH_LONG).show();
+            }
+        });
+        return view;
+    }
+}

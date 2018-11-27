@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">APP9</string>
+    <string name="item_default_name">Stéphane le Robot</string>
+    <string name="item_default_price">12000€</string>
+    <string name="item_description">Ce petit robot sait faire plein de choses</string>
+</resources>
