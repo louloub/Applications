@@ -18,13 +18,13 @@ import static java.lang.System.in;
 
 public class RobotsItemAdapter extends BaseAdapter {
 
-    // fields (Attributs) de la classe qui est notre adapter
-    // Activité = Context + interface graphique
+    // FIELDS (Attributs) de la classe qui est notre adapter
+    // ACTIVITE = CONTEXT + INTERFACE GRAPHIQUE
     private Context context;
     private List<RobotsItem> robotsItemList;
     private LayoutInflater inflater;
 
-    // constructeurs
+    // CONSTRUCTEUR
     public RobotsItemAdapter(Context context, List<RobotsItem> robotsItemList) {
 
         this.context = context;
@@ -32,20 +32,20 @@ public class RobotsItemAdapter extends BaseAdapter {
         this.inflater = LayoutInflater.from(context);
     }
 
-    // Récupérer le nombre d'item
+    // RECUPERER LE NOMBRE D'ITEM
     @Override
     public int getCount() {
         return robotsItemList.size();
     }
 
-    // Récupérer l'item
+    // RECUPERER L'ITEM
     @Override
     public RobotsItem getItem(int position) {
         // récupération de l'item par sa position
         return robotsItemList.get(position);
     }
 
-    // Récupérer l'ID de l'item
+    // RECUPERER l'ID DE L'ITEM
     @Override
     public long getItemId(int i) {
         return 0;
@@ -53,6 +53,7 @@ public class RobotsItemAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+        // INFLATE PERMET DE DESERIALISE COMME SetContentView
         view = inflater.inflate(R.layout.adapter_item, null);
 
         // Get information about item
@@ -90,5 +91,7 @@ public class RobotsItemAdapter extends BaseAdapter {
             }
         });
         return view;
+
+
     }
 }
