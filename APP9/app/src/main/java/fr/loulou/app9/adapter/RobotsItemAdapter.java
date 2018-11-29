@@ -54,6 +54,8 @@ public class RobotsItemAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         // INFLATE PERMET DE DESERIALISE COMME SetContentView
+        // En quelques sorte il eclate la vue pour récupérer chaque élément
+
         view = inflater.inflate(R.layout.adapter_item, null);
 
         // Get information about item
@@ -66,7 +68,7 @@ public class RobotsItemAdapter extends BaseAdapter {
 
         // Get item icon view
         ImageView itemIconView = view.findViewById(R.id.item_icon);
-        String resourceName = mnemonic ;
+        String resourceName = mnemonic;
         int resId = context.getResources().getIdentifier(resourceName, "drawable", context.getPackageName());
         // On "applique" l'image de "itemIconView" à "resId" avec la méthode setImageResource
         itemIconView.setImageResource(resId);
@@ -87,11 +89,9 @@ public class RobotsItemAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"Petite notification de " + itemName+ ", qui coûte " + itemPrice, Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Petite notification de " + itemName + ", qui coûte " + itemPrice, Toast.LENGTH_LONG).show();
             }
         });
         return view;
-
-
     }
 }
