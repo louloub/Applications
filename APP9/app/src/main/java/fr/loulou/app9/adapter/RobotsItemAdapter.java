@@ -14,8 +14,6 @@ import java.util.List;
 import fr.loulou.app9.R;
 import fr.loulou.app9.models.RobotsItem;
 
-import static java.lang.System.in;
-
 public class RobotsItemAdapter extends BaseAdapter {
 
     // FIELDS (Attributs) de la classe qui est notre adapter
@@ -85,7 +83,12 @@ public class RobotsItemAdapter extends BaseAdapter {
         TextView itemPriceView = view.findViewById(R.id.item_price);
         itemPriceView.setText(itemPrice);
 
-        // Action sur le click
+
+        return view;
+    }
+}
+        /* -- ACTION CLICK FONCTIONNEL --
+        // Action sur le click de la view qui englobe l'image et tout le texte
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,5 +96,17 @@ public class RobotsItemAdapter extends BaseAdapter {
             }
         });
         return view;
-    }
-}
+        */
+
+        /*
+        // TEST
+        public void onClick (View v){
+            openActivity2(intent)
+        }
+
+        // TEST
+        public void openActivity2() {
+            Intent intent = new Intent(this, Activity2.class);
+            startActivity(intent);
+        }
+        */
